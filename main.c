@@ -1,7 +1,7 @@
 #include<sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
-
+#include <stdlib.h>
 int main()
 {
     // Declaração da variável pid do tipo pid_t(id do processo)
@@ -21,7 +21,8 @@ int main()
     processo filho que está executando*/
     else if (pid == 0){
         // Exibe na tela o id do processo filho
-        printf("Esse é o processo filho, PID: %d \n", getpid());
+        execl("/bin/bash", "echo", getpid());
+
     }
     else {
         // Aguarda a execução do processo filho
